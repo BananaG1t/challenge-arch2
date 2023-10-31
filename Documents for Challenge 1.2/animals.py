@@ -98,23 +98,3 @@ farm = '''🐕🐕🐕🐕🐕🐕🐕🐕🐕🐕🐕🐕
 🐈🐖🐈🐖🐈🐈🐈🐖🐈🐖🐈🐈
 🐕🐎🐖🐎🐖🐖🐕🐎🐖🐎🐖🐖
 🐈🐑🐕🐑🐎🐎🐈🐑🐕🐑🐎🐎'''
-animal_values = {
-    '🐕': 200,  # Dog
-    '🐈': 100,  # Cat
-    '🐖': 300,  # Pig
-    '🐎': 700,  # Horse
-    '🐑': 350,  # Sheep
-    '🐄': 500,  # Cow
-    }
-total_animals = 0
-total_value = 0
-
-for char in farm:
-    if char in animal_values:
-        # Update the count and total value
-        total_animals += 1
-        total_value += animal_values[char]
-
-# Print the total count and value
-print(f'Total Animals: {total_animals}')
-print(f'Total Value: {total_value}')
