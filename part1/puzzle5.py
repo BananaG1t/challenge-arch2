@@ -1,6 +1,10 @@
 import requests
 
-
+'''
+Binary Number: 00101010
+Response Status Code: 201
+Response Content: {"id":"clnyhzo5p000kod0uqgornh1i","title":"Puzzle 5","question":" ","questionData":"Example: 01010101","message":"This one was tough... You deserve a hint: morse","messageIsMarkdown":false,"completed":true,"position":5}
+'''
 
 # API URL
 url = 'https://api.codehunt.nl/categories/clnx6wdxc0004od0uemi4n473/exercises/clnyhzo5p000kod0uqgornh1i'
