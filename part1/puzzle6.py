@@ -2,7 +2,7 @@ import turtle
 
 # The RGB values needed to complete the image are as follows, gained with a HEX colour picker
 
-a = 12
+a = 10
 b = 255
 c = 135
 
