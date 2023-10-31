@@ -2,4 +2,5 @@
 
 print(hex(127044))
 
-#just guess based of logic
+'''if you convert all the hex values to unicode characters you'll see 
+a domino board appearing, the missing domino piece has the value 0x1f044'''
