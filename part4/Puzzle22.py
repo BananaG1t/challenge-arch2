@@ -1,4 +1,4 @@
-# Define grid as list of lists
+# Define grid as a list of lists
 grid = [
     [24, 93, 87, 41, 44, 89, 77, 87, 77, 21, 54, 27, 31, 56, 15, 75, 17, 59, 40, 73, 81, 17, 70, 40, 82],
     [28, 44, 20, 59, 16, 66, 47, 83, 93, 51, 60, 35, 19, 28, 43, 39, 81, 63, 74, 34, 78, 86, 70, 19, 59],
@@ -39,45 +39,35 @@ grid = [
     [15, 56, 30, 86, 62, 81, 50, 31, 68, 81, 32, 63, 40, 36, 72, 45, 15, 42, 74, 14, 29, 47, 56, 16, 24],
     [13, 53, 50, 75, 64, 78, 99, 54, 71, 14, 31, 53, 53, 90, 21, 67, 88, 75, 33, 19, 23, 27, 73, 12, 90],
     [37, 90, 60, 56, 61, 37, 27, 93, 21, 29, 82, 92, 73, 42, 28, 19, 40, 71, 57, 82, 83, 12, 79, 35, 25],
-    [59, 59, 75, 84, 13, 55, 90, 14, 48, 45, 30, 25, 33, 63, 57, 80, 66, 88, 26, 81, 44, 27, 29, 13, 96],
+    [59, 59, 75, 84, 13, 55, 90, 14, 48, 45, 30, 25, 33, 63, 57, 80, 66, 88, 26, 81, 44, 27, 29, 13, 96]
 ]
+
 # Initialize variables for the largest and smallest dips
 largest_dip = None
 smallest_dip = None
 
-# Iterate through the grid to find the largest and smallest dips
 for row in range(len(grid)):
     for col in range(len(grid[0])):
-        # Get the value of the current element in the grid
         val = grid[row][col]
-
-        # Assume the current element is a dip until proven otherwise
         is_dip = True
+        
+        for r in range(row-1, row+2):
+            for c in range(col-1, col+2):
+                if (r, c) != (row, col):
+                    if r < 0 or r > 39 or c < 0 or c > 24:
+                        is_dip = False
+                    elif grid[r][c] <= val:
+                        is_dip = False
 
-        # Iterate through a 3x3 neighborhood around the current element
-        for r in range(row - 1, row + 2):
-            for c in range(col - 1, col + 2):
-                # Check if the indices are within the valid range of the grid
-                if 0 <= r < len(grid) and 0 <= c < len(grid[0]):
-                    # Ensure we are not comparing the current element with itself
-                    if (r, c) != (row, col):
-                        # Check if the value of the neighbor is greater than or equal to the current element
-                        if grid[r][c] >= val:
-                            # If any neighbor is greater or equal, it's not a dip
-                            is_dip = False
-                            # Exit the inner loop
-                            break
-
-        # If the current element is still considered a dip, update the largest and smallest dips
         if is_dip:
+            
             # Update the largest dip if it's the first or a larger dip is found
             if largest_dip is None or val > largest_dip:
                 largest_dip = val
             # Update the smallest dip if it's the first or a smaller dip is found
             if smallest_dip is None or val < smallest_dip:
                 smallest_dip = val
-
-# Check if there are any dips in the grid
+                    
 if largest_dip is not None and smallest_dip is not None:
     # Calculate the product of the largest and smallest dips
     product_of_dips = largest_dip * smallest_dip
