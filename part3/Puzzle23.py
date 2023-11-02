@@ -35,12 +35,13 @@ nr3 = 0, None
 for pers, scores in dicty.items():
     maxs = max(scores)
     mins = min(scores)
+    print(scores)
     indexmax = scores.index(maxs)
-    indexmin = scores.index(mins)
     scores.pop(indexmax)
+    indexmin = scores.index(mins)
     scores.pop(indexmin)
     summ = sum(scores)
-    print(summ, pers)
+    print(scores)
     if summ > nr1[0]:
         nr3 = nr2
         nr2 = nr1
