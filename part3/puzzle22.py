@@ -1,4 +1,25 @@
-# Define the number grid
+def find_largest_square(grid):
+    max_sum = float('-1000') # just use any low number
+    max_square = None
+
+    for i in range(len(grid) - 2):  # 2 because we want a 3x3 square
+        for j in range(len(grid[0]) - 2):  # 2 because we want a 3x3 square
+            square_sum = 0
+            square = []
+            for x in range(i, i + 3):
+                row = []
+                for y in range(j, j + 3):
+                    square_sum += grid[x][y]
+                    row.append(grid[x][y])
+                square.append(row)
+
+            if square_sum > max_sum:
+                max_sum = square_sum
+                max_square = square
+
+    return max_square, max_sum
+
+# Define your grid here (16 rows and 15 columns)
 grid = [
     [23, 92, 86, 40, 43, 88, 76, 86, 76, 20, 53, 26, 30, 55, 14],
     [74, 16, 58, 39, 72, 80, 16, 69, 39, 81, 27, 43, 19, 58, 15],
@@ -18,20 +39,7 @@ grid = [
     [17, 82, 51, 16, 70, 66, 69, 98, 40, 39, 49, 93, 24, 73, 77]
 ]
 
-def find_largest_square(grid, square_size=3):
-    max_sum = float('-inf')
-    max_square = None
-
-    for i in range(len(grid) - square_size + 1):
-        for j in range(len(grid[0]) - square_size + 1):
-            square_sum = sum(grid[x][y] for x in range(i, i + square_size) for y in range(j, j + square_size))
-            if square_sum > max_sum:
-                max_sum = square_sum
-                max_square = [grid[x][j:j + square_size] for x in range(i, i + square_size)]
-
-    return max_square, max_sum
-
-max_square, max_sum = find_largest_square(grid, square_size=3)
+max_square, max_sum = find_largest_square(grid)
 
 print("Largest 3x3 Square:")
 for row in max_square:
