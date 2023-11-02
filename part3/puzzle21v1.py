@@ -2,7 +2,7 @@ numb = 0
 cnt = 0
 switch = False
 while True:
-    if numb % 10 == 0:
+    if numb % 20 == 0:
         switch = not switch
     if switch:
         if cnt % 2:
@@ -15,5 +15,6 @@ while True:
         numb += cnt
     if cnt == 1000:
         break
-    print(numb)
     cnt+=1
+
+print(numb)
