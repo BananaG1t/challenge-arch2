@@ -24,5 +24,5 @@ for combo in combos:
     new_message = encrypted_message
     for number in combo:
         new_message = thingy(new_message, int(number))
-    if "" in new_message:
-        print(new_message, combo[::-1])
+    if "TREASURE" in new_message:
+        print(new_message, combo)
